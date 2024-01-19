@@ -93,14 +93,34 @@ class MyApp extends StatelessWidget {
               ],
             ),
             Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
-                    height: 100.0,
-                    width: 100.0,
-                    decoration: BoxDecoration(
-                        color: Colors.orange,
-                        border: Border.all(color: Colors.black, width: 3)),
-                    child: const Text('Container 1'))
+                  height: 100.0,
+                  width: 100.0,
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.white, width: 3)),
+                  child: const Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Container 5',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 100.0,
+                  width: 100.0,
+                  color: Colors.red,
+                  child: const Align(
+                    alignment: Alignment.centerRight,
+                    child: Text('Container 4'),
+                  ),
+                ),
               ],
             ),
           ],
