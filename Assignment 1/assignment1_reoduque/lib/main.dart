@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, todo
 
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 //https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e
 
@@ -33,30 +34,62 @@ class MyApp extends StatelessWidget {
             Column(
               children: <Widget>[
                 Container(
+                  height: 100.0,
+                  width: 100.0,
+                  decoration: BoxDecoration(
+                      color: Colors.amber,
+                      border: Border.all(color: Colors.black, width: 3)),
+                  child: const Align(
+                    alignment: Alignment.center,
+                    child: Text('Container 1'),
+                  ),
+                ),
+                Transform.rotate(
+                  angle: pi / 4,
+                  child: Container(
                     height: 100.0,
                     width: 100.0,
-                    decoration: BoxDecoration(
-                        color: Colors.orange,
-                        border: Border.all(color: Colors.black, width: 3)),
-                    child: const Text('Container 1')),
-                Container(
-                    height: 100.0,
-                    width: 100.0,
-                    decoration: BoxDecoration(
-                        color: Colors.blue,
-                        border: Border.all(color: Colors.black, width: 3)),
-                    child: const Text('Container 2'))
+                    color: Colors.white,
+                    child: const Align(
+                      alignment: Alignment.center,
+                      child: Text('Container 2'),
+                    ),
+                  ),
+                ),
               ],
             ),
             Column(
               children: <Widget>[
-                Container(
-                    height: 100.0,
-                    width: 100.0,
-                    decoration: BoxDecoration(
-                        color: Colors.orange,
-                        border: Border.all(color: Colors.black, width: 3)),
-                    child: const Text('Container 1'))
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Container(
+                      height: 100.0,
+                      width: 100.0,
+                      color: Colors.yellow,
+                      child: const Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Text('Container 3'),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Container(
+                      height: 100.0,
+                      width: 100.0,
+                      color: Colors.blue,
+                      child: const Align(
+                        alignment: Alignment.centerRight,
+                        child: Text('Container 4'),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
             Column(
