@@ -34,21 +34,52 @@ class MyFirstPageState extends State<MyFirstPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              //TODO: Replace this Text Widget
-              // and build the label and switch here
-              // as children of the row.
-              Text('testing 1 2 3 '),
+              const Text('Enable Buttons'),
+              Switch(
+                value: enabled,
+                onChanged: (bool onChangedValue) {
+                  enabled = onChangedValue;
+                  setState(() {
+                    if (timesClicked == 0) {
+                      msg1 = 'Click Me';
+                    }
+                  });
+                },
+              )
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              //TODO: Build the two buttons here 
+              //TODO: Build the two buttons here
               // as children of the row.
-              // For each button use a 
-              // "Visibility Widget" and its child 
+              // For each button use a
+              // "Visibility Widget" and its child
               // will be an "ElevatedButton"
-              
+              Visibility(
+                visible: enabled,
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      timesClicked++;
+                      msg1 = 'Clicked $timesClicked';
+                    });
+                  },
+                  child: Text(msg1),
+                ),
+              ),
+              Visibility(
+                visible: enabled,
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      timesClicked = 0;
+                      msg1 = 'Click Me';
+                    });
+                  },
+                  child: Text('Reset'),
+                ),
+              ),
             ],
           ),
           const SizedBox(
@@ -68,7 +99,6 @@ class MyFirstPageState extends State<MyFirstPage> {
                   // a submit button that will show a
                   // snackbar with the "firstName"
                   // if validation is satisfied.
-                  
                 ],
               ),
             ),
